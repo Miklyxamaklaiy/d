@@ -3,75 +3,108 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark">
   <title>Учебный вечер — Пределы</title>
+
+  <!-- Tailwind без сборки -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Шрифт ALS Sector (файлы лежат рядом с этим HTML) -->
   <style>
-    @font-face {
-      font-family: "ALS Sector";
-      src: url("./ALS_Sector-Regular.otf") format("opentype");
-      font-weight: 400;
-      font-style: normal;
-      font-display: swap;
+    @font-face{
+      font-family:"ALS Sector";
+      src:url("./ALS_Sector-Regular.otf") format("opentype");
+      font-weight:400;
+      font-style:normal;
+      font-display:swap;
     }
-    @font-face {
-      font-family: "ALS Sector";
-      src: url("./ALS_Sector-Bold.otf") format("opentype");
-      font-weight: 700;
-      font-style: normal;
-      font-display: swap;
+    @font-face{
+      font-family:"ALS Sector";
+      src:url("./ALS_Sector-Bold.otf") format("opentype");
+      font-weight:700;
+      font-style:normal;
+      font-display:swap;
     }
-    :root {
-      font-family: "ALS Sector", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    :root{
+      font-family:"ALS Sector",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
     }
-    h1,h2,h3,strong,b { font-weight: 700; }
+    h1,h2,h3,strong,b{font-weight:700}
   </style>
 </head>
 <body class="bg-slate-950 min-h-screen flex items-center justify-center py-10 px-4">
-  <!-- Содержание афиши такое же, как раньше; логотип и шрифт уже подключены -->
   <div class="max-w-[1200px] w-full grid md:grid-cols-[1fr_360px] gap-6">
+    <!-- Постер -->
     <div class="relative mx-auto w-[1080px] max-w-full aspect-[3/4] overflow-hidden rounded-3xl shadow-2xl">
+      <!-- Фон-градиент -->
       <div class="absolute inset-0 bg-gradient-to-br from-[#0b1020] via-[#1c1f45] to-[#3b0f4c]"></div>
+
+      <!-- Светящиеся пятна -->
       <div class="absolute -top-24 -left-24 h-96 w-96 rounded-full blur-3xl opacity-30 bg-fuchsia-500"></div>
       <div class="absolute -bottom-24 -right-24 h-[28rem] w-[28rem] rounded-full blur-3xl opacity-25 bg-indigo-500"></div>
+
+      <!-- Декор-сетка -->
       <svg class="absolute inset-0 opacity-[0.08]" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-        <defs><pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
-          <path d="M 32 0 L 0 0 0 32" fill="none" stroke="white" stroke-width="0.5" /></pattern></defs>
+        <defs>
+          <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+            <path d="M 32 0 L 0 0 0 32" fill="none" stroke="white" stroke-width="0.5" />
+          </pattern>
+        </defs>
         <rect width="100%" height="100%" fill="url(#grid)" />
       </svg>
+
+      <!-- ЛОГО -->
       <div class="absolute top-6 left-6">
         <div class="bg-white/10 backdrop-blur border border-white/20 rounded-2xl p-2">
+          <!-- Положи свой logo.svg рядом с этим файлом -->
           <img src="./logo.svg" alt="Логотип" class="h-14 w-14 object-contain rounded-xl">
         </div>
       </div>
+
+      <!-- Стикер -->
       <div class="absolute top-6 right-6 bg-white text-slate-900 rounded-2xl px-4 py-3 font-semibold shadow-lg rotate-[-6deg]">
         Новичкам — особенно ♥
       </div>
+
+      <!-- Контент -->
       <div class="relative h-full w-full p-10 flex flex-col">
+        <!-- Заголовок -->
         <div class="mt-10">
           <div class="inline-flex items-center gap-2 text-fuchsia-200/90 text-sm tracking-wide uppercase">
             <div class="h-1 w-6 rounded-full bg-fuchsia-400"></div> Учебный вечер
           </div>
-          <h1 class="mt-3 leading-tight font-extrabold text-white drop-shadow-[0_4px_24px_rgba(99,102,241,0.35)] text-5xl md:text-6xl">
+          <h1 class="mt-3 leading-tight text-white drop-shadow-[0_4px_24px_rgba(99,102,241,0.35)] text-5xl md:text-6xl">
             Пределы — это красиво
           </h1>
           <p class="mt-4 text-indigo-100/90 text-lg md:text-xl max-w-3xl">
             Поможем разобраться в пределах и полюбить их, а также подготовиться к первому РК.
           </p>
+
+          <!-- Дата и время -->
           <div class="mt-6 flex flex-wrap gap-4 text-indigo-100/90">
-            <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur rounded-full px-4 py-2 border border-white/15"><span>📅</span> 10 октября</div>
-            <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur rounded-full px-4 py-2 border border-white/15"><span>⏰</span> 18:00</div>
+            <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur rounded-full px-4 py-2 border border-white/15">
+              <span>📅</span> 10 октября
+            </div>
+            <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur rounded-full px-4 py-2 border border-white/15">
+              <span>⏰</span> 18:00
+            </div>
           </div>
         </div>
+
+        <!-- Большая карточка -->
         <div class="mt-8 relative rounded-3xl p-8 bg-white/10 border border-white/20 backdrop-blur-xl shadow-xl">
           <div class="absolute -top-3 -left-3 bg-fuchsia-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow">главная тема</div>
+
           <div class="grid md:grid-cols-[1.2fr_0.8fr] gap-6 items-center">
             <div>
-              <div class="text-3xl md:text-4xl font-semibold leading-snug text-white">
+              <div class="text-3xl md:text-4xl leading-snug text-white">
                 <span class="opacity-90">lim</span>
                 <span class="opacity-70 align-super text-base"> x→a </span>
                 <span class="opacity-90"> f(x) = L</span>
               </div>
-              <p class="mt-3 text-indigo-100/90">Разложим страшные слова «эпсилон–дельта» на понятные и наглядные шаги. Научимся быстро видеть предел по графику, по формулам и по определению.</p>
+              <p class="mt-3 text-indigo-100/90">
+                Разложим страшные слова «эпсилон–дельта» на понятные и наглядные шаги.
+                Научимся быстро видеть предел по графику, по формулам и по определению.
+              </p>
               <div class="mt-4 flex flex-wrap gap-2">
                 <span class="inline-flex items-center gap-2 text-sm bg-white/10 rounded-full px-3 py-1 border border-white/15">∞ бесконечно малые</span>
                 <span class="inline-flex items-center gap-2 text-sm bg-white/10 rounded-full px-3 py-1 border border-white/15">Σ правила пределов</span>
@@ -79,6 +112,8 @@
                 <span class="inline-flex items-center gap-2 text-sm bg-white/10 rounded-full px-3 py-1 border border-white/15">▹ графический смысл</span>
               </div>
             </div>
+
+            <!-- График -->
             <div class="relative h-56 md:h-64 rounded-2xl bg-gradient-to-br from-indigo-500/20 to-fuchsia-500/20 border border-white/20 overflow-hidden">
               <svg viewBox="0 0 300 200" class="absolute inset-0 w-full h-full">
                 <line x1="20" y1="180" x2="290" y2="180" stroke="white" stroke-opacity="0.35" stroke-width="2" />
@@ -92,9 +127,13 @@
             </div>
           </div>
         </div>
+
+        <!-- Две секции -->
         <div class="mt-8 grid md:grid-cols-2 gap-6">
           <div class="rounded-2xl p-6 bg-white/10 border border-white/15">
-            <div class="flex items-center gap-2 text-fuchsia-200/90 font-semibold uppercase tracking-wide text-sm">Что разберём</div>
+            <div class="flex items-center gap-2 text-fuchsia-200/90 font-semibold uppercase tracking-wide text-sm">
+              Что разберём
+            </div>
             <ul class="mt-4 space-y-3 text-indigo-100/90">
               <li>Определение предела (интуитивно и строго)</li>
               <li>Правила вычисления пределов</li>
@@ -103,16 +142,21 @@
               <li>Пределы последовательностей</li>
             </ul>
           </div>
+
           <div class="rounded-2xl p-6 bg-white/10 border border-white/15">
-            <div class="flex items-center gap-2 text-fuchsia-200/90 font-semibold uppercase tracking-wide text-sm">Практика и подготовка к РК</div>
+            <div class="flex items-center gap-2 text-fuchsia-200/90 font-semibold uppercase tracking-wide text-sm">
+              Практика и подготовка к РК
+            </div>
             <ul class="mt-4 space-y-3 text-indigo-100/90">
               <li>Разберём 15+ задач разных типов</li>
               <li>Типичные ловушки и быстрая проверка</li>
-              <li>Мини‑конспект с формулами и примерами</li>
+              <li>Мини-конспект с формулами и примерами</li>
               <li>Ответы на вопросы первокурсников</li>
             </ul>
           </div>
         </div>
+
+        <!-- Низ -->
         <div class="mt-8 flex flex-wrap items-center gap-4">
           <div class="inline-flex items-center gap-2 bg-white/10 rounded-2xl px-4 py-3 border border-white/15 text-indigo-100/90">
             <span>📍</span> Место: аудитория ____ (уточните)
@@ -121,6 +165,7 @@
             <span>🤝</span> Атмосфера поддержки и простых объяснений
           </div>
         </div>
+
         <div class="mt-6 flex flex-wrap items-center justify-between gap-4">
           <a href="#" class="group inline-flex items-center gap-2 bg-gradient-to-r from-fuchsia-500 to-indigo-500 text-white font-semibold px-6 py-4 rounded-2xl shadow-lg">
             Будет больно не прийти →
@@ -129,15 +174,20 @@
             QR под регистрацию / чат (вставьте позже)
           </div>
         </div>
-        <div class="mt-auto pt-6 text-xs text-indigo-200/70">Если нужно — добавим логотипы партнёров, ссылку на регистрацию и точный адрес.</div>
+
+        <div class="mt-auto pt-6 text-xs text-indigo-200/70">
+          Если нужно — добавим логотипы партнёров, ссылку на регистрацию и точный адрес.
+        </div>
       </div>
     </div>
+
+    <!-- Боковая панель -->
     <div class="h-full bg-white/5 border border-white/10 rounded-3xl p-6 text-indigo-100/90">
       <h3 class="text-white font-bold text-lg">Как быстро адаптировать афишу</h3>
       <ul class="mt-4 list-disc list-inside space-y-2">
         <li><b>Логотип:</b> файл <code>logo.svg</code> (можно заменить).</li>
-        <li><b>Дата/время:</b> редактируйте в блоке с пиллами.</li>
-        <li><b>Место:</b> укажите аудиторию и корпус.</li>
+        <li><b>Дата/время:</b> редактируй в блоке с пиллами.</li>
+        <li><b>Место:</b> укажи аудиторию и корпус.</li>
         <li><b>QR-код:</b> можно добавить вместо подписи справа внизу.</li>
         <li><b>Шрифт:</b> используется «ALS Sector» (Regular + Bold).</li>
       </ul>
