@@ -25,19 +25,16 @@
       font-style:normal;
       font-display:swap;
     }
-    /* Важно: перебиваем дефолт Tailwind */
-    html{
-      font-family:"ALS Sector",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif !important;
+    :root{
+      font-family:"ALS Sector",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
     }
     h1,h2,h3,strong,b{font-weight:700}
   </style>
 </head>
-
-<!-- было: min-h-screen flex items-center justify-center -->
-<body class="bg-slate-950 flex justify-center pt-8 pb-4 px-4">
+<body class="bg-slate-950 min-h-screen flex items-center justify-center pt-8 pb-4 px-4">
   <div class="max-w-[1200px] w-full grid md:grid-cols-[1fr_360px] gap-6">
     <!-- Постер -->
-    <!-- убран aspect-[3/4], чтобы высота была по контенту -->
+    <!-- Убрана фикс. высота: aspect-[3/4] -->
     <div class="relative mx-auto w-[1080px] max-w-full overflow-hidden rounded-3xl shadow-2xl">
       <!-- Фон-градиент -->
       <div class="absolute inset-0 bg-gradient-to-br from-[#0b1020] via-[#1c1f45] to-[#3b0f4c]"></div>
@@ -59,6 +56,7 @@
       <!-- ЛОГО -->
       <div class="absolute top-6 left-6">
         <div class="bg-white/10 backdrop-blur border border-white/20 rounded-2xl p-2">
+          <!-- Положи свой logo.svg рядом с этим файлом -->
           <img src="./logo.svg" alt="Логотип" class="h-14 w-14 object-contain rounded-xl">
         </div>
       </div>
@@ -69,10 +67,10 @@
       </div>
 
       <!-- Контент -->
-      <!-- было p-10 → стало p-8, ниже mt-10 → mt-6 -->
-      <div class="relative h-full w-full p-8 flex flex-col">
+      <!-- Было p-10 → стало px-10 pt-10 pb-6 (уменьшили только низ) -->
+      <div class="relative h-full w-full px-10 pt-10 pb-6 flex flex-col">
         <!-- Заголовок -->
-        <div class="mt-6">
+        <div class="mt-10">
           <h1 class="mt-3 leading-tight text-white drop-shadow-[0_4px_24px_rgba(99,102,241,0.35)] text-5xl md:text-6xl">
             УЧЕБНЫЙ ВЕЧЕР
           </h1>
