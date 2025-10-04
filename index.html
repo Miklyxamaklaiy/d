@@ -4,56 +4,38 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="dark">
-  <title>Учебный вечер — Пределы</title>
+  <title>УЧЕБНЫЙ ВЕЧЕР</title>
 
   <!-- Tailwind без сборки -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- (Опционально) ALS Selector / ALS Sector -->
+  <!-- Шрифт ALS Sector (файлы лежат рядом с этим HTML) -->
   <style>
-    /* Если рядом лежит ALSSelector.woff2 — раскомментируй ↓ */
-    /*
-    @font-face{
-      font-family:"ALS Selector";
-      src:url("./ALSSelector.woff2") format("woff2");
-      font-display:swap;
-    }
-    */
     @font-face{
       font-family:"ALS Sector";
-      src:url("./fonts/ALS_Sector-Regular.otf") format("opentype");
+      src:url("./ALS_Sector-Regular.otf") format("opentype");
       font-weight:400;
       font-style:normal;
       font-display:swap;
     }
     @font-face{
       font-family:"ALS Sector";
-      src:url("./fonts/ALS_Sector-Bold.otf") format("opentype");
+      src:url("./ALS_Sector-Bold.otf") format("opentype");
       font-weight:700;
       font-style:normal;
       font-display:swap;
     }
     :root{
-      font-family:"ALS Selector","ALS Sector",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      font-family:"ALS Sector",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
     }
-    /* Чуть крупнее формулы в карточке */
-    .mjx-chtml { color: #e5e7eb; } /* цвет формул (бледный белый) */
+    h1,h2,h3,strong,b{font-weight:700}
   </style>
-
-  <!-- MathJax для формул -->
-  <script>
-    window.MathJax = {
-      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
-      options: { skipHtmlTags: {'[+]': ['svg','script','style','textarea']} }
-    };
-  </script>
-  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
-<body class="bg-slate-950 min-h-screen flex items-center justify-center pt-10 pb-10 px-4">
+<body class="bg-slate-950 min-h-screen flex items-center justify-center pt-8 pb-4 px-4">
   <div class="max-w-[1200px] w-full grid md:grid-cols-[1fr_360px] gap-6">
-
     <!-- Постер -->
-    <div class="relative mx-auto w-[1080px] max-w-full aspect-[3/4] overflow-hidden rounded-3xl shadow-2xl">
+    <!-- Убрана фикс. высота: aspect-[3/4] -->
+    <div class="relative mx-auto w-[1080px] max-w-full overflow-hidden rounded-3xl shadow-2xl">
       <!-- Фон-градиент -->
       <div class="absolute inset-0 bg-gradient-to-br from-[#0b1020] via-[#1c1f45] to-[#3b0f4c]"></div>
 
@@ -61,7 +43,7 @@
       <div class="absolute -top-24 -left-24 h-96 w-96 rounded-full blur-3xl opacity-30 bg-fuchsia-500"></div>
       <div class="absolute -bottom-24 -right-24 h-[28rem] w-[28rem] rounded-full blur-3xl opacity-25 bg-indigo-500"></div>
 
-      <!-- Лёгкая декор-сетка -->
+      <!-- Декор-сетка -->
       <svg class="absolute inset-0 opacity-[0.08]" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
         <defs>
           <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
@@ -71,34 +53,10 @@
         <rect width="100%" height="100%" fill="url(#grid)" />
       </svg>
 
-      <!-- Математический фон (ненавязчивый) -->
-      <svg class="absolute inset-0 opacity-[0.16] mix-blend-screen pointer-events-none" viewBox="0 0 1080 1440" aria-hidden="true">
-        <!-- оси -->
-        <g stroke="white" stroke-width="1" opacity="0.2">
-          <line x1="120" y1="980" x2="960" y2="980"/>
-          <line x1="220" y1="1120" x2="220" y2="740"/>
-        </g>
-        <!-- синус -->
-        <path d="M220,980 C300,820 420,820 500,980 S700,1140 780,980 S940,820 960,980"
-              fill="none" stroke="white" stroke-width="2" opacity="0.33"/>
-        <!-- парабола -->
-        <path d="M140,620 Q540,390 940,620" fill="none" stroke="white" stroke-width="1.4" opacity="0.2"/>
-        <!-- круги -->
-        <circle cx="820" cy="280" r="120" fill="none" stroke="white" stroke-width="1.2" opacity="0.22"/>
-        <circle cx="580" cy="270" r="110" fill="none" stroke="white" stroke-width="1" opacity="0.18"/>
-        <!-- формулы -->
-        <g fill="white" opacity="0.33" font-size="18">
-          <text x="250" y="420">e^{i\pi}+1=0</text>
-          <text x="190" y="520">\int_a^b f(x)\,dx</text>
-          <text x="870" y="360">y=\ln x</text>
-          <text x="780" y="640">\sum_{k=1}^n k=\frac{n(n+1)}2</text>
-          <text x="300" y="720">f'(x)=\frac{d}{dx}\sin x=\cos x</text>
-        </g>
-      </svg>
-
-      <!-- ЛОГО (слева сверху) -->
+      <!-- ЛОГО -->
       <div class="absolute top-6 left-6">
         <div class="bg-white/10 backdrop-blur border border-white/20 rounded-2xl p-2">
+          <!-- Положи свой logo.svg рядом с этим файлом -->
           <img src="./logo.svg" alt="Логотип" class="h-14 w-14 object-contain rounded-xl">
         </div>
       </div>
@@ -109,14 +67,12 @@
       </div>
 
       <!-- Контент -->
-      <div class="relative h-full w-full p-10 flex flex-col">
-        <!-- Заголовки -->
+      <!-- Было p-10 → стало px-10 pt-10 pb-6 (уменьшили только низ) -->
+      <div class="relative h-full w-full px-10 pt-10 pb-6 flex flex-col">
+        <!-- Заголовок -->
         <div class="mt-10">
-          <div class="inline-flex items-center gap-2 text-fuchsia-200/90 text-sm tracking-wide uppercase">
-            <div class="h-1 w-6 rounded-full bg-fuchsia-400"></div> Учебный вечер
-          </div>
-          <h1 class="mt-3 leading-tight font-extrabold text-white drop-shadow-[0_4px_24px_rgba(99,102,241,0.35)] text-5xl md:text-6xl">
-            Пределы — это красиво
+          <h1 class="mt-3 leading-tight text-white drop-shadow-[0_4px_24px_rgba(99,102,241,0.35)] text-5xl md:text-6xl">
+            УЧЕБНЫЙ ВЕЧЕР
           </h1>
           <p class="mt-4 text-indigo-100/90 text-lg md:text-xl max-w-3xl">
             Поможем разобраться в пределах и полюбить их, а также подготовиться к первому РК.
@@ -133,26 +89,21 @@
           </div>
         </div>
 
-        <!-- Большая карточка с формулой и графиком -->
+        <!-- Большая карточка -->
         <div class="mt-8 relative rounded-3xl p-8 bg-white/10 border border-white/20 backdrop-blur-xl shadow-xl">
-          <div class="absolute -top-3 -left-3 bg-fuchsia-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow">
-            главная тема
-          </div>
+          <div class="absolute -top-3 -left-3 bg-fuchsia-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow">главная тема</div>
 
-          <div class="grid md:grid-cols-[1.15fr_0.85fr] gap-6 items-center">
-            <!-- Формулы -->
+          <div class="grid md:grid-cols-[1.2fr_0.8fr] gap-6 items-center">
             <div>
-              <!-- Красивый предел -->
-              <div class="text-3xl md:text-4xl font-semibold leading-snug text-white/95">
-                <span class="opacity-90">$\displaystyle \lim_{x\to a} f(x) = L$</span>
+              <div class="text-3xl md:text-4xl leading-snug text-white">
+                <span class="opacity-90">lim</span>
+                <span class="opacity-70 align-super text-base"> x→a </span>
+                <span class="opacity-90"> f(x) = L</span>
               </div>
-
-              <!-- Епсилон-дельта -->
-              <p class="mt-4 text-indigo-100/90 md:text-[17px]">
-                Строго: <span class="text-white/95">$\forall\,\varepsilon &gt; 0\ \exists\,\delta &gt; 0$</span> такие, что
-                <span class="text-white/95">$0 &lt; |x-a| &lt; \delta \Rightarrow |f(x)-L| &lt; \varepsilon$</span>.
+              <p class="mt-3 text-indigo-100/90">
+                Разложим страшные слова «эпсилон–дельта» на понятные и наглядные шаги.
+                Научимся быстро видеть предел по графику, по формулам и по определению.
               </p>
-
               <div class="mt-4 flex flex-wrap gap-2">
                 <span class="inline-flex items-center gap-2 text-sm bg-white/10 rounded-full px-3 py-1 border border-white/15">∞ бесконечно малые</span>
                 <span class="inline-flex items-center gap-2 text-sm bg-white/10 rounded-full px-3 py-1 border border-white/15">Σ правила пределов</span>
@@ -161,69 +112,45 @@
               </div>
             </div>
 
-            <!-- График с подписями ε и δ -->
-            <div class="relative h-64 md:h-72 rounded-2xl bg-gradient-to-br from-indigo-500/20 to-fuchsia-500/20 border border-white/20 overflow-hidden">
-              <svg viewBox="0 0 360 240" class="absolute inset-0 w-full h-full">
-                <!-- оси -->
-                <line x1="40" y1="200" x2="330" y2="200" stroke="white" stroke-opacity="0.5" stroke-width="2"/>
-                <line x1="60" y1="220" x2="60" y2="20"  stroke="white" stroke-opacity="0.5" stroke-width="2"/>
-                <!-- подписи осей -->
-                <text x="332" y="205" fill="white" opacity="0.8" font-size="12">x</text>
-                <text x="50" y="22"  fill="white" opacity="0.8" font-size="12">y</text>
-
-                <!-- L и ε-полоса -->
-                <line x1="60" y1="110" x2="330" y2="110" stroke="#A78BFA" stroke-dasharray="6 6" stroke-width="2"/>
-                <!-- L+ε и L−ε -->
-                <rect x="60" y="90" width="270" height="40" fill="#A78BFA" opacity="0.16"/>
-                <line x1="60" y1="90"  x2="330" y2="90"  stroke="#A78BFA" stroke-opacity="0.9" stroke-dasharray="4 4" stroke-width="1.6"/>
-                <line x1="60" y1="130" x2="330" y2="130" stroke="#A78BFA" stroke-opacity="0.9" stroke-dasharray="4 4" stroke-width="1.6"/>
-                <text x="335" y="114" fill="#C7B8FF" opacity="0.95" font-size="11">y=L</text>
-                <text x="335" y="93"  fill="#C7B8FF" opacity="0.95" font-size="11">L+ε</text>
-                <text x="335" y="133" fill="#C7B8FF" opacity="0.95" font-size="11">L−ε</text>
-
-                <!-- x=a и δ-окно -->
-                <line x1="160" y1="20" x2="160" y2="220" stroke="#60A5FA" stroke-dasharray="6 6" stroke-width="2"/>
-                <text x="152" y="16" fill="#93C5FD" font-size="11">x=a</text>
-                <!-- дельта-скобки -->
-                <line x1="140" y1="205" x2="180" y2="205" stroke="#60A5FA" stroke-width="2"/>
-                <line x1="140" y1="202" x2="140" y2="208" stroke="#60A5FA" stroke-width="2"/>
-                <line x1="180" y1="202" x2="180" y2="208" stroke="#60A5FA" stroke-width="2"/>
-                <text x="156" y="220" fill="#93C5FD" font-size="11">δ</text>
-
-                <!-- кривая f(x) -->
-                <path d="M 60 170 C 100 80, 140 80, 160 110 S 230 170, 260 155 S 300 90, 330 140"
-                      fill="none" stroke="white" stroke-opacity="0.95" stroke-width="3"/>
-                <!-- точка (a, L) -->
-                <circle cx="160" cy="110" r="5.5" fill="#F0ABFC"/>
-                <text x="168" y="102" fill="white" opacity="0.9" font-size="12">(a, L)</text>
+            <!-- График -->
+            <div class="relative h-56 md:h-64 rounded-2xl bg-gradient-to-br from-indigo-500/20 to-fuchsia-500/20 border border-white/20 overflow-hidden">
+              <svg viewBox="0 0 300 200" class="absolute inset-0 w-full h-full">
+                <line x1="20" y1="180" x2="290" y2="180" stroke="white" stroke-opacity="0.35" stroke-width="2" />
+                <line x1="40" y1="190" x2="40" y2="10"  stroke="white" stroke-opacity="0.35" stroke-width="2" />
+                <path d="M 40 160 C 80 60, 140 60, 180 120 S 260 190, 300 80" fill="none" stroke="white" stroke-opacity="0.9" stroke-width="3" />
+                <line x1="40" y1="110" x2="290" y2="110" stroke="#A78BFA" stroke-opacity="0.9" stroke-dasharray="6 6" stroke-width="2.5" />
+                <circle cx="140" cy="110" r="6" fill="#F0ABFC" />
+                <text x="150" y="100" fill="white" opacity="0.9" font-size="13">L</text>
+                <text x="128" y="130" fill="white" opacity="0.9" font-size="11">x→a</text>
               </svg>
             </div>
           </div>
         </div>
 
-        <!-- Разделы -->
+        <!-- Две секции -->
         <div class="mt-8 grid md:grid-cols-2 gap-6">
           <div class="rounded-2xl p-6 bg-white/10 border border-white/15">
             <div class="flex items-center gap-2 text-fuchsia-200/90 font-semibold uppercase tracking-wide text-sm">
               Что разберём
             </div>
             <ul class="mt-4 space-y-3 text-indigo-100/90">
-              <li>Интуитивное и строгое понимание предела</li>
+              <li>Определение предела (интуитивно и строго)</li>
               <li>Правила вычисления пределов</li>
               <li>Бесконечно малые и эквивалентности</li>
-              <li>Односторонние пределы и типы разрывов</li>
+              <li>Односторонние пределы и разрывы</li>
               <li>Пределы последовательностей</li>
             </ul>
           </div>
+
           <div class="rounded-2xl p-6 bg-white/10 border border-white/15">
             <div class="flex items-center gap-2 text-fuchsia-200/90 font-semibold uppercase tracking-wide text-sm">
               Практика и подготовка к РК
             </div>
             <ul class="mt-4 space-y-3 text-indigo-100/90">
-              <li>15+ задач разных типов</li>
-              <li>Типичные ловушки и проверка ответа</li>
+              <li>Разберём 15+ задач разных типов</li>
+              <li>Типичные ловушки и быстрая проверка</li>
               <li>Мини-конспект с формулами и примерами</li>
-              <li>Сессия вопросов-ответов</li>
+              <li>Ответы на вопросы первокурсников</li>
             </ul>
           </div>
         </div>
@@ -245,18 +172,6 @@
         </div>
       </div>
     </div>
-
-    <!-- Боковая «памятка» -->
-    <aside class="h-full bg-white/5 border border-white/10 rounded-3xl p-6 text-indigo-100/90">
-      <h3 class="text-white font-bold text-lg">Как адаптировать афишу</h3>
-      <ul class="mt-4 list-disc list-inside space-y-2">
-        <li><b>Логотип:</b> замените <code>logo.svg</code> в корне.</li>
-        <li><b>Дата/время:</b> редактируйте в пиллах под заголовком.</li>
-        <li><b>Место:</b> укажите аудиторию и корпус.</li>
-        <li><b>Шрифт:</b> подключите ALS Selector / Sector (см. верх стиля).</li>
-        <li><b>Печать:</b> «Печать → Сохранить как PDF» (границы: узкие).</li>
-      </ul>
-    </aside>
   </div>
 </body>
 </html>
