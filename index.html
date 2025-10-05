@@ -23,7 +23,16 @@
       background-color: #0b1020;
       font-family: "ALS Sector", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     }
+    .mjx-chtml, .mjx-chtml * { color:#e5e7eb; }
   </style>
+
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+      options: { skipHtmlTags: {'[+]': ['svg','script','style','textarea']} }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
 
 <body class="flex items-center justify-center min-h-screen bg-slate-950">
@@ -34,20 +43,63 @@
     <div class="absolute -bottom-24 -right-24 h-96 w-96 rounded-full blur-3xl opacity-25 bg-indigo-500"></div>
 
     <!-- контент -->
-    <div class="relative flex flex-col items-center justify-center text-center h-full text-white px-8">
-      <h1 class="text-5xl font-extrabold drop-shadow-[0_4px_24px_rgba(99,102,241,0.35)] leading-tight">
-        УЧЕБНЫЙ<br><span class="text-fuchsia-300">ВЕЧЕР</span>
-      </h1>
-      <p class="mt-4 text-indigo-100/90 text-lg max-w-md">
-        Поможем разобраться в пределах и полюбить их,<br>а также подготовиться к первому РК.
-      </p>
-      <div class="mt-6 flex flex-wrap justify-center gap-4 text-indigo-100/90">
-        <div class="inline-flex items-center gap-2 bg-white/10 rounded-full px-4 py-2 border border-white/15">
-          📅 10 октября
+    <div class="relative flex flex-col justify-between h-full text-white px-6 py-6">
+      <div>
+        <h1 class="text-4xl font-extrabold leading-tight drop-shadow-[0_4px_24px_rgba(99,102,241,0.35)] text-center">
+          УЧЕБНЫЙ <br><span class="text-fuchsia-300">ВЕЧЕР</span>
+        </h1>
+        <p class="mt-2 text-center text-indigo-100/90 text-sm">
+          Поможем разобраться в пределах и полюбить их, <br>а также подготовиться к первому РК.
+        </p>
+      </div>
+
+      <!-- блок главной темы -->
+      <div class="relative mt-4 rounded-2xl p-4 bg-white/10 border border-white/20 backdrop-blur-xl shadow-xl">
+        <div class="absolute -top-3 -left-3 bg-fuchsia-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow">
+          главная тема
         </div>
-        <div class="inline-flex items-center gap-2 bg-white/10 rounded-full px-4 py-2 border border-white/15">
-          ⏰ 18:00
+
+        <div class="grid grid-cols-[1.15fr_0.85fr] gap-2 items-center">
+          <div>
+            <div class="text-2xl leading-snug text-white/95">
+              $\displaystyle \lim_{x\to a} f(x)=L$
+            </div>
+            <p class="mt-1 text-indigo-100/90 text-[13px] leading-snug">
+              Строгое определение: $\forall\,\varepsilon&gt;0\,\exists\,\delta&gt;0$ такие, что<br>
+              $0&lt;|x-a|&lt;\delta\Rightarrow|f(x)-L|&lt;\varepsilon.$
+            </p>
+            <div class="mt-2 flex flex-wrap gap-1 text-[11px]">
+              <span class="inline-flex bg-white/10 rounded-full px-2 py-1 border border-white/15">∞ бесконечно малые</span>
+              <span class="inline-flex bg-white/10 rounded-full px-2 py-1 border border-white/15">Σ правила пределов</span>
+              <span class="inline-flex bg-white/10 rounded-full px-2 py-1 border border-white/15">⌗ типовые задачи</span>
+              <span class="inline-flex bg-white/10 rounded-full px-2 py-1 border border-white/15">▹ графический смысл</span>
+            </div>
+          </div>
+
+          <!-- мини-график -->
+          <div class="relative h-40 rounded-xl bg-gradient-to-br from-indigo-500/20 to-fuchsia-500/20 border border-white/20 overflow-hidden">
+            <svg viewBox="0 0 240 160" class="absolute inset-0 w-full h-full">
+              <defs>
+                <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+                  <path d="M0,0 L6,3 L0,6 Z" fill="white" opacity="0.75"/>
+                </marker>
+              </defs>
+              <line x1="30" y1="130" x2="220" y2="130" stroke="white" stroke-opacity="0.5" stroke-width="1.5" marker-end="url(#arrow)"/>
+              <line x1="50" y1="145" x2="50" y2="20" stroke="white" stroke-opacity="0.5" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+              <line x1="50" y1="80" x2="220" y2="80" stroke="#A78BFA" stroke-width="1.2" stroke-dasharray="5 5"/>
+              <line x1="120" y1="20" x2="120" y2="140" stroke="#60A5FA" stroke-width="1.2" stroke-dasharray="5 5"/>
+
+              <path d="M 50 120 C 80 40, 100 40, 120 80 S 170 120, 190 110 S 220 60, 230 100"
+                    fill="none" stroke="white" stroke-opacity="0.9" stroke-width="2.2"/>
+              <circle cx="120" cy="80" r="4" fill="#F0ABFC"/>
+            </svg>
+          </div>
         </div>
+      </div>
+
+      <div class="mt-4 text-center text-indigo-100/70 text-sm">
+        📅 10 октября &nbsp; ⏰ 18:00
       </div>
     </div>
   </div>
