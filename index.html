@@ -59,11 +59,7 @@
       border: 1px solid rgba(255,255,255,0.2);
       backdrop-filter: blur(6px);
     }
-    .logo img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
+    .logo img { width: 100%; height: 100%; object-fit: contain; }
 
     .card h1 {
       font-size: 3rem;
@@ -105,17 +101,8 @@
       box-shadow: 0 2px 6px rgba(236,72,255,0.4);
     }
 
-    .formula {
-      font-size: 1.3rem;
-      color: #fff;
-      margin-bottom: 10px;
-    }
-
-    .definition {
-      font-size: 1rem;
-      color: #d6ccff;
-      line-height: 1.4rem;
-    }
+    .formula { font-size: 1.3rem; color: #fff; margin-bottom: 10px; }
+    .definition { font-size: 1rem; color: #d6ccff; line-height: 1.4rem; }
 
     .tags {
       margin-top: 16px;
@@ -123,7 +110,6 @@
       flex-wrap: wrap;
       gap: 8px;
     }
-
     .tag {
       font-size: 0.85rem;
       color: #fff;
@@ -142,46 +128,20 @@
       justify-content: center;
       gap: 28px;
     }
-
-    .footer span {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
+    .footer span { display: inline-flex; align-items: center; gap: 6px; }
 
     svg.graph {
-      width: 100%;
-      height: 180px;
+      width: 100%; height: 180px;
       border-radius: 12px;
       background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
       border: 1px solid rgba(255,255,255,0.1);
     }
   </style>
-
-  <!-- ✅ Рабочая конфигурация MathJax -->
-  <script>
-  window.MathJax = {
-    tex: {
-      inlineMath: [['$', '$'], ['\\(', '\\)']],
-      displayMath: [['$$', '$$'], ['\\[', '\\]']],
-      processEscapes: true,
-      processEnvironments: true
-    },
-    options: {
-      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-      ignoreHtmlClass: 'tex2jax_ignore',
-      processHtmlClass: 'mathjax_process'
-    }
-  };
-  </script>
-  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"></script>
 </head>
 
 <body>
   <div class="card">
-    <div class="logo">
-      <img src="./logo.svg" alt="Логотип">
-    </div>
+    <div class="logo"><img src="./logo.svg" alt="Логотип"></div>
 
     <h1>УЧЕБНЫЙ <span>ВЕЧЕР</span></h1>
     <p class="subtitle">
@@ -189,14 +149,14 @@
       а также подготовиться к первому РК.
     </p>
 
-    <div class="main-block relative">
+    <div class="main-block relative mathjax_process">
       <div class="badge">главная тема</div>
 
       <div>
-        <div class="formula">$\\displaystyle \\lim_{x\\to a} f(x)=L$</div>
+        <div class="formula">$\displaystyle \lim_{x\to a} f(x)=L$</div>
         <p class="definition">
-          Строгое определение: $\\forall\\,\\varepsilon &gt; 0\\ \\exists\\,\\delta &gt; 0$ такие, что <br>
-          $0 &lt; |x-a| &lt; \\delta \\Rightarrow |f(x)-L| &lt; \\varepsilon.$
+          Строгое определение: $\forall\,\varepsilon > 0\ \exists\,\delta > 0$ такие, что <br>
+          $0 < |x-a| < \delta \Rightarrow |f(x)-L| < \varepsilon.$
         </p>
         <div class="tags">
           <span class="tag">∞ бесконечно малые</span>
@@ -234,5 +194,22 @@
       <span>⏰ 18:00</span>
     </div>
   </div>
+
+  <!-- MathJax подключаем внизу -->
+  <script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script','noscript','style','textarea','pre','code'],
+      processHtmlClass: 'mathjax_process'
+    }
+  };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"></script>
 </body>
 </html>
